@@ -1,0 +1,15 @@
+body{
+  font-size:90%;
+}
+
+input::placeholder{
+
+  font-size:80%;
+}
+
+.dc-container{
+  width:60%;
+  margin: 0 auto;
+}
+
+

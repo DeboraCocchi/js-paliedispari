@@ -4,24 +4,58 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.2/css/bootstrap.min.css' integrity='sha512-CpIKUSyh9QX2+zSdfGP+eWLx23C8Dj9/XmHjZY2uDtfkdLGo0uY12jgcnkX9vXOgYajEKb/jiw67EYm+kBf+6g==' crossorigin='anonymous'/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Pali e Dispari</title>
 </head>
 <body>
 
-  <h2>Parola Palindroma</h2>
-  <input id="user-word" pattern="[a-zA-Z]{1,}" type="text" placeholder="Inserisci una parola..." title="Inserisci una parola...Con le lettere!">
-  <button id="sub-word">Controlla</button>
-  <h5 class="verifica-parola">La parola da te inserita...<br></h5>
-  <hr>
 
-  <h2>Pari o dispari?</h2>
-  <input id="user-number" type="number" placeholder="Inserisci un numero da 1 a 5" title="Inserisci un numero da 1 a 5" required>
-  <input id="user-evenodd" type="text" placeholder="Inserisci 'pari' oppure 'dispari'" title="Inserisci pari o dispari" required>
-  <button id="sub-choice">Controlla</button>
-  <h5 class="verifica-somma">La somma è...<br></h5>
+<div class="dc-container">
+  <div class="container-fluid">
+      <div class="row d-flex justify-content-center align-items-center">
 
 
-  <script src="js/script.js"></script>
+          <!------------------- parole ------------------------------>
+
+          <div class="card my-3 m-auto col-12 p-0" >
+            <img src="img/scrabble.jpeg" class="card-img-top" alt="scrabble">
+            <div class="card-body">
+              <h3 class="text-warning">Parola Palindroma</h3>
+              <p class="card-text">Inserisci una parola e clicca il bottone per verificare se è palindroma</p>
+              <div class="input-group input-group-sm mb-3">
+                <input id="user-word" type="text" pattern="[a-zA-Z]{1,}" class="form-control" placeholder="Inserisci una parola...">
+                <button class="btn btn-warning btn-outline-secondary" type="button" id="sub-word">Controlla</button>
+              </div>
+              <p class="text-secondary">La parola da te inserita... <span class="verifica-parola text-warning"></span>
+
+              </p>
+            </div>
+          </div>
+
+          <!------------- numeri ------------------------- -->
+
+          <div class="card  my-3 mx-auto col-12 p-0" >
+            <img src="img/numbers.jpeg" class="card-img-top" alt="numbers">
+            <div class="card-body">
+              <h3 class="text-info">Pari o dispari?</h3>
+              <p class="card-text">Inserisci un numero da 1 a 5; il computer estrarrà un altro numero, sempre da 1 a 5 e farà la somma. Indovina se il risultato sarà pari o dispari.</p>
+              <div class="input-group">
+                <input type="number" id="user-number" type="number" placeholder="Inserisci un numero da 1 a 5" title="Inserisci un numero da 1 a 5" required class="form-control">
+                <input id="user-evenodd" type="text" placeholder="Inserisci 'pari' oppure 'dispari'" title="Inserisci pari o dispari" required class="form-control">
+                <button id="sub-choice" class="btn btn-info">Controlla</button>
+              </div>
+              
+              <p class="pc-number mt-2"></p>
+              <p class="verifica-somma text-info"></p>
+            
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+<script src="js/script.js"></script>
+
 </body>
 </html>

@@ -21,11 +21,13 @@ const wordBtn = document.getElementById('sub-word');
 wordBtn.addEventListener('click', function(){
   const verificaPalindroma = checkWord(userInput.value);
   oputputField.innerHTML += verificaPalindroma;
-  userInput.value = '';
-  oputputField.innerHTML +='';
+  
 });
 
-
+userInput.addEventListener('focus', function(){
+  userInput.value = '';
+  oputputField.innerHTML ='';
+} );
 
 
 function checkWord(parola){
@@ -34,17 +36,19 @@ function checkWord(parola){
       if(parola[i] === parola[parola.length-1-i]){
         console.log('la parola è palindroma!');
         console.log(parola);
-        return 'è palindroma';
+        return '&Egrave palindroma!';
         
       }else{
         console.log('la parola NON è palindroma!');
         console.log(parola);
-        return 'NON è palindroma, prova con un\'altra parola';}
+        return 'NON è palindroma, prova con un\'altra parola.';}
    
   }
-  
+
 };
-userInput.value='';
+
+
+
 
 // pari e dispari
 
@@ -54,6 +58,7 @@ const userNumber = document.getElementById('user-number');
 const userEvenOdd = document.getElementById('user-evenodd');
 const userChoice = document.getElementById('sub-choice');
 const sumOutput = document.querySelector('.verifica-somma');
+const pcEstraction = document.querySelector('.pc-number');
 
 
 userChoice.addEventListener('click', function(){
@@ -68,6 +73,7 @@ userChoice.addEventListener('click', function(){
     //lancio la funzione del numero rdm del pc, salvando il risultato in una const
     const pcNumber = computerNumber();
     console.log('al pc è uscito il numero ' + pcNumber);
+    pcEstraction.innerHTML += 'Il computer ha estratto il numero: '+pcNumber;
 
     //recupero il numero inserito dallo user e lancio la funzione pari e dispari
     const ourSum = evenOddNumbersSum(parseInt(userNumber.value),pcNumber);
@@ -77,15 +83,24 @@ userChoice.addEventListener('click', function(){
       console.log(userEvenOdd.value , ourSum);
       sumOutput.innerHTML = `Hai indovinato il risultato! La somma dei due numeri è <strong>${ourSum}</strong>, come avevi previsto!`;
     }else{sumOutput.innerHTML = `Per questa volta non hai indovinato il risultato, ma puoi sempre riprovare!`;}
+  
+   
 
   //qui verifico la correttezza dei campi compilati e impedisco alla funzione di andare avanti
   }else if(userNumber.value<1 ||userNumber.value>5 || isNaN(userNumber.value) || userEvenOdd.value !=='pari' ||userEvenOdd.value !=='dispari' || userEvenOdd.value=='' ){
     sumOutput.innerHTML = 'Inserisci tutti i dati correttamente, come richiesto';
   }
 
+  
+
+});
+
+userNumber.addEventListener('focus', function(){
   userEvenOdd.value ='';
   userNumber.value = '';
-});
+  pcEstraction.innerHTML ='';
+  sumOutput.innerHTML ='';
+} );
 
 
 
