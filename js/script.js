@@ -11,8 +11,8 @@ Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
 Dichiariamo chi ha vinto.*/
 
 
-/* l'utente inserisce una parola: se non è una stringa esce dalla funzione --> typeof String = isString booleano;
-ok, la parola è una stringa: verifica che sia palindroma, ovvero che l'indice i = lenght-(i+1)*/
+/* da chiedere:
+1-perchè non corrisponde l'output; 2- perchè non ha preso il pattern dell'input*/
 
 const userInput = document.getElementById('user-word');
 const oputputField = document.querySelector('.verifica-parola');
@@ -23,7 +23,7 @@ wordBtn.addEventListener('click', function(){
   oputputField.innerHTML += verificaPalindroma;
 });
 
-verificaPalindroma = checkWord('userInput.value');
+const verificaPalindroma = checkWord('userInput.value');
 
 
 function checkWord(parola){
@@ -32,11 +32,35 @@ function checkWord(parola){
       if(parola[i] === parola[parola.length-1-i]){
         console.log('la parola è palindroma!');
         return 'è palindroma';
-      } else{
-        return 'NON è palindroma, prova con un\'altra parola';
-      }
+      }return 'NON è palindroma, prova con un\'altra parola';
+      
   }
 };
+
+// pari e dispari
+
+const computerRisult = computerNumber();
+console.log(computerRisult);
+
+function computerNumber(){
+  const pcResult = Math.ceil(Math.random()*(5));
+  return pcResult;
+
+}
+
+const userNumber = document.getElementById('user-number');
+const userEvenOdd = document.getElementById('user-evenodd');
+const userChoice = document.getElementById('sub-choice');
+const sumOutput = document.querySelector('.verifica-somma');
+
+
+userChoice.addEventListener('click', function(){
+  console.log(userNumber.value, userEvenOdd.value);
+  if(userNumber.value<1 ||userNumber.value>5 || isNaN(userNumber.value) || userEvenOdd.value !=='pari' ||userEvenOdd.value !=='dispari'){
+    sumOutput.innerHTML = 'Inserisci tutti i dati come richiesto';
+  }sumOutput.innerHTML = 'bravo';
+  
+});
 
 
 
