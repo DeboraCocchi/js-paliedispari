@@ -19,7 +19,7 @@ const oputputField = document.querySelector('.verifica-parola');
 const wordBtn = document.getElementById('sub-word');
 
 wordBtn.addEventListener('click', function(){
-  const verificaPalindroma = checkWord(userInput.value);
+  const verificaPalindroma = checkWord(userInput.value.toLowerCase());
   oputputField.innerHTML += verificaPalindroma;
   
 });
@@ -62,10 +62,10 @@ const pcEstraction = document.querySelector('.pc-number');
 
 
 userChoice.addEventListener('click', function(){
-  console.log(userNumber.value, userEvenOdd.value);
+  console.log(userNumber.value, userEvenOdd.value.toLowerCase());
 
   //verifico che l'utente inserisca i dati come richiesto
-  if((userNumber.value>=1 && userNumber.value<=5)&&(userEvenOdd.value==='pari' || userEvenOdd.value==='dispari')){
+  if((userNumber.value>=1 && userNumber.value<=5)&&(userEvenOdd.value.toLowerCase()==='pari' || userEvenOdd.value.toLowerCase()==='dispari')){
 
     //ha compilato correttamente entrambi i campi
     sumOutput.innerHTML = 'I dati sono validi';
@@ -79,15 +79,15 @@ userChoice.addEventListener('click', function(){
     const ourSum = evenOddNumbersSum(parseInt(userNumber.value),pcNumber);
     console.log('la somma è ' + ourSum);
 
-    if(userEvenOdd.value===ourSum){
-      console.log(userEvenOdd.value , ourSum);
+    if(userEvenOdd.value.toLowerCase()===ourSum){
+      console.log(userEvenOdd.value.toLowerCase() , ourSum);
       sumOutput.innerHTML = `Hai indovinato il risultato! La somma dei due numeri è <strong>${ourSum}</strong>, come avevi previsto!`;
     }else{sumOutput.innerHTML = `Per questa volta non hai indovinato il risultato, ma puoi sempre riprovare!`;}
   
    
 
   //qui verifico la correttezza dei campi compilati e impedisco alla funzione di andare avanti
-  }else if(userNumber.value<1 ||userNumber.value>5 || isNaN(userNumber.value) || userEvenOdd.value !=='pari' ||userEvenOdd.value !=='dispari' || userEvenOdd.value=='' ){
+  }else if(userNumber.value<1 ||userNumber.value>5 || isNaN(userNumber.value) || userEvenOdd.value.toLowerCase() !=='pari' ||userEvenOdd.value.toLowerCase() !=='dispari' || userEvenOdd.value.toLowerCase()=='' ){
     sumOutput.innerHTML = 'Inserisci tutti i dati correttamente, come richiesto';
   }
 
